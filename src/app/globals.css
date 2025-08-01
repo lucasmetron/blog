@@ -1,1 +1,21 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+:root {
+  --textBold: '#0F172B';
+  --textRegular: '#2E374C';
+  --label: '#8F93A3';
+}
+::-webkit-scrollbar {
+  max-width: 4px; /* width of the entire scrollbar */
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: white; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #8f93a3; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 1px solid #8f93a3; /* creates padding around scroll thumb */
+}
