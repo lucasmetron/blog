@@ -5,6 +5,7 @@
   --textRegular: '#2E374C';
   --label: '#8F93A3';
 }
+
 ::-webkit-scrollbar {
   max-width: 4px; /* width of the entire scrollbar */
   height: 4px;

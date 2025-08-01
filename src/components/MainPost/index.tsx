@@ -15,7 +15,7 @@ const MainPost = ({ post }: MainPostType) => {
       className={clsx(
         'relative',
         'w-[100%]',
-        'h-[35vh]',
+        'h-[40vh]',
         'max-[800]:h-fit',
         'grid',
         'grid-cols-[0.7fr_1fr]',
