@@ -1,6 +1,8 @@
+import Button from '@/components/Button';
 import clsx from 'clsx';
 
 export default function Home() {
+  console.log('✌️Home --->');
   return (
     <div
       className={clsx(
@@ -10,9 +12,11 @@ export default function Home() {
         'hover:text-red-500',
         'transition',
         'duration-500',
+        'flex',
       )}
     >
       index
+      <Button />
     </div>
   );
 }
