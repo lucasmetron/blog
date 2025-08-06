@@ -1,13 +1,12 @@
 import React from 'react';
-import { getPosts } from './functions';
+import { postRepository } from '@/repositories/posts';
 import MainPost from '../MainPost';
 import SecondaryPost from '../SecondaryPost';
 
 const Posts = async () => {
-  const posts = await getPosts();
-  const firsPost = posts[0];
-  const anothersPosts = posts.slice(1);
-  console.log('✌️posts --->', posts);
+  const posts = await postRepository.findAll();
+  const firsPost = posts.length > 0 ? posts[0] : undefined;
+  const anothersPosts = posts.length > 0 ? posts.slice(1) : [];
 
   return (
     <div className='flex flex-col gap-8 items-center justify-center'>

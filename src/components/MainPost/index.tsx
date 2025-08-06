@@ -6,11 +6,11 @@ import { PostType } from '@/Types/PostType';
 import { formatDate } from '@/utils/functions';
 
 interface MainPostType {
-  post: PostType;
+  post: PostType | undefined;
 }
 
 const MainPost = ({ post }: MainPostType) => {
-  return (
+  return post !== undefined ? (
     <div
       className={clsx(
         'relative',
@@ -42,6 +42,8 @@ const MainPost = ({ post }: MainPostType) => {
         <p style={{ color: colors.textRegular }}>{post.excerpt}</p>
       </div>
     </div>
+  ) : (
+    <></>
   );
 };
 
