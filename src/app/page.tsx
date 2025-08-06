@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import ContainerPosts from '@/components/ContainerPosts';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
@@ -9,9 +11,10 @@ export default function Home() {
     <div className='w-full flex justify-center'>
       <ContainerPosts>
         <Header />
-        <Posts />
+        <Suspense fallback={<SpinLoader />}>
+          <Posts />
+        </Suspense>
         <Footer />
-        <SpinLoader />
       </ContainerPosts>
     </div>
   );
