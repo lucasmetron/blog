@@ -11,7 +11,7 @@ const JSON_POST_FILE_PATCH = resolve(
   'seed',
   'posts.json',
 );
-const WAIT_TIME_SIMULATE_MS = 5000;
+const WAIT_TIME_SIMULATE_MS = 0;
 
 export class JsonPostRepository implements PostRepository {
   private async simulateWait() {

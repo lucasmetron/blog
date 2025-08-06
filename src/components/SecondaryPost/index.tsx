@@ -1,4 +1,3 @@
-import { colors } from '@/styles/pallete';
 import { PostType } from '@/Types/PostType';
 import { formatDate } from '@/utils/functions';
 import Image from 'next/image';
@@ -26,11 +25,9 @@ const SecondaryPost = ({ posts }: SecondaryPostType) => {
             />
           </div>
 
-          <p style={{ color: colors.label }}>{formatDate(post.createdAt)}</p>
-          <h2 style={{ color: colors.textBold }} className='font-bold text-xl'>
-            {post.title}
-          </h2>
-          <p style={{ color: colors.textRegular }}>{post.excerpt}</p>
+          <p>{formatDate(post.createdAt)}</p>
+          <h2 className='font-bold text-xl'>{post.title}</h2>
+          <p className='opacity-90'>{post.excerpt}</p>
         </div>
       ))}
     </div>

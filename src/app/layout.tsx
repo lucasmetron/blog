@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import ButtonDarkMode from '@/components/ButtonDarkMode';
+import { ThemeProvider } from '@/context/themeContext';
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -13,7 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-BR'>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>
+          <ButtonDarkMode /> {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
