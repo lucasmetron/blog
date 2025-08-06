@@ -16,11 +16,21 @@ const ButtonDarkMode = () => {
     }
 
     setIsDark(state => !state);
+    localStorage.setItem('isDark', JSON.stringify(!isDark));
   }
 
   useLayoutEffect(() => {
+    const isDark: boolean = JSON.parse(
+      localStorage.getItem('isDark') || 'false',
+    );
     const html = document.documentElement;
-    html.classList.add('dark');
+    if (isDark) {
+      html.classList.add('dark');
+      setIsDark(true);
+    } else {
+      html.classList.remove('dark');
+      setIsDark(false);
+    }
   }, []);
 
   return (

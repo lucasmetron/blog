@@ -9,19 +9,7 @@ import clsx from 'clsx';
 
 export default function Home() {
   return (
-    <div
-      className={clsx(
-        'w-full',
-        'min-h-screen',
-        'flex',
-        'justify-center',
-        'text-slate-900',
-        'bg-slate-100',
-        'dark:',
-        'dark:text-slate-100',
-        'dark:bg-slate-900',
-      )}
-    >
+    <div className={clsx('w-full', 'min-h-screen', 'flex', 'justify-center')}>
       <ContainerPosts>
         <Header />
         <Suspense fallback={<SpinLoader />}>
