@@ -2,6 +2,7 @@ import ContainerPosts from '@/components/ContainerPosts';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Posts from '@/components/Posts';
+import SpinLoader from '@/components/SpinLoader';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <Header />
         <Posts />
         <Footer />
+        <SpinLoader />
       </ContainerPosts>
     </div>
   );
