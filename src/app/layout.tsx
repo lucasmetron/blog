@@ -17,7 +17,8 @@ export default function RootLayout({
     <html lang='pt-BR'>
       <body>
         <ThemeProvider>
-          <ButtonDarkMode /> {children}
+          <ButtonDarkMode />
+          {children}
         </ThemeProvider>
       </body>
     </html>
