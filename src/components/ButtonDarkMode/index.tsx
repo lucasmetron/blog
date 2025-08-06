@@ -26,7 +26,7 @@ const ButtonDarkMode = () => {
   return (
     <button
       title='Muda tema'
-      className='absolute right-5 top-5'
+      className='fixed right-5 top-5'
       onClick={toogleDarkMode}
     >
       {isDark ? (
