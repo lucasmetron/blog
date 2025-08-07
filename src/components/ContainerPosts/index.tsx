@@ -12,7 +12,7 @@ const ContainerPosts = ({ children }: ContainerProps) => {
         'w-[80vw]',
         'max-[900px]:w-[90vw]',
         'pt-[3rem]',
-        'pb-[3rem]',
+        'pb-[1rem]',
         'flex',
         'flex-col',
         'gap-[1rem]',

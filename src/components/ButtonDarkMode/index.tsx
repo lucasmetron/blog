@@ -36,13 +36,13 @@ const ButtonDarkMode = () => {
   return (
     <button
       title='Muda tema'
-      className='fixed right-5 top-5'
+      className='fixed right-5 top-5 z-1 bg-slate-900 dark:bg-slate-100 rounded-2xl p-1 '
       onClick={toogleDarkMode}
     >
       {isDark ? (
-        <Sun className='cursor-pointer' color='#f1f5f9' />
+        <Sun className='cursor-pointer text-slate-900' />
       ) : (
-        <Moon className='cursor-pointer' />
+        <Moon className='cursor-pointer text-slate-100' />
       )}
     </button>
   );
