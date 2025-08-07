@@ -9,7 +9,7 @@ interface SecondaryPostType {
 
 const SecondaryPost = ({ posts }: SecondaryPostType) => {
   return (
-    <div className='w-[100%] h-fit grid grid-cols-[1fr_1fr_1fr] max-[800]:grid-cols-[1fr] gap-5'>
+    <div className='w-[100%] h-fit grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr_1fr] gap-[1.5rem]'>
       {posts.map(post => (
         <div
           key={post.id}

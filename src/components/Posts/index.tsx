@@ -9,7 +9,7 @@ const Posts = async () => {
   const anothersPosts = posts.length > 0 ? posts.slice(1) : [];
 
   return (
-    <div className='flex flex-col gap-8 items-center justify-center'>
+    <div className='flex flex-col gap-[1.5rem]  items-center justify-center sm:gap-8'>
       <MainPost post={firsPost} />
       <SecondaryPost posts={anothersPosts} />
     </div>
