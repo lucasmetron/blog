@@ -14,17 +14,17 @@ const SecondaryPost = ({ posts }: SecondaryPostType) => {
     <div className='w-[100%] h-fit grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr_1fr] gap-[1.5rem]'>
       {posts.map(post => (
         <Link
-          href={'/'}
+          href={`/post/${post.slug}`}
           key={post.id}
-          className='w-[100%] flex flex-col gap-1 cursor-pointer'
+          className='w-[100%] flex flex-col gap-1 cursor-pointer group'
         >
-          <div className='relative'>
+          <div className='relative rounded-[12px] overflow-hidden'>
             <Image
               src={post.coverImageUrl}
               alt={post.slug}
               width={1000}
               height={1000}
-              className='object-fill rounded-[5px] w-[100%]'
+              className='object-fill w-[100%] group-hover:scale-105 transition'
             />
           </div>
 
