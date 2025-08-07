@@ -1,7 +1,9 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
 import { PostType } from '@/Types/PostType';
 import { formatDate } from '@/utils/functions';
-import Image from 'next/image';
-import React from 'react';
 
 interface SecondaryPostType {
   posts: PostType[];
@@ -11,7 +13,8 @@ const SecondaryPost = ({ posts }: SecondaryPostType) => {
   return (
     <div className='w-[100%] h-fit grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr_1fr] gap-[1.5rem]'>
       {posts.map(post => (
-        <div
+        <Link
+          href={'/'}
           key={post.id}
           className='w-[100%] flex flex-col gap-1 cursor-pointer'
         >
@@ -28,7 +31,7 @@ const SecondaryPost = ({ posts }: SecondaryPostType) => {
           <p>{formatDate(post.createdAt)}</p>
           <h2 className='font-bold text-xl'>{post.title}</h2>
           <p className='opacity-90'>{post.excerpt}</p>
-        </div>
+        </Link>
       ))}
     </div>
   );
