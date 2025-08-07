@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
+
 import './globals.css';
 import ButtonDarkMode from '@/components/ButtonDarkMode';
 import { ThemeProvider } from '@/context/themeContext';
-import clsx from 'clsx';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Container from '@/components/Container';
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -16,17 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-BR'>
-      <body
-        className={clsx(
-          'text-slate-900',
-          'bg-slate-100',
-          'dark:text-slate-100',
-          'dark:bg-slate-900',
-        )}
-      >
+      <body>
         <ThemeProvider>
           <ButtonDarkMode />
-          {children}
+          <Container>
+            <Header />
+            {children}
+            <Footer />
+          </Container>
         </ThemeProvider>
       </body>
     </html>
