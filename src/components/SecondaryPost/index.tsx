@@ -4,6 +4,7 @@ import React from 'react';
 
 import { PostType } from '@/Types/PostType';
 import { formatDate } from '@/utils/functions';
+import clsx from 'clsx';
 
 interface SecondaryPostType {
   posts: PostType[];
@@ -11,7 +12,16 @@ interface SecondaryPostType {
 
 const SecondaryPost = ({ posts }: SecondaryPostType) => {
   return (
-    <div className='w-[100%] h-fit grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr_1fr] gap-[1.5rem]'>
+    <div
+      className={clsx(
+        'w-[100%]',
+        'h-fit',
+        'grid',
+        'grid-cols-[1fr]',
+        'sm:grid-cols-[1fr_1fr_1fr]',
+        'gap-[1.5rem]',
+      )}
+    >
       {posts.map(post => (
         <Link
           href={`/post/${post.slug}`}
@@ -24,13 +34,20 @@ const SecondaryPost = ({ posts }: SecondaryPostType) => {
               alt={post.slug}
               width={1000}
               height={1000}
-              className='object-fill w-[100%] group-hover:scale-105 transition'
+              className={clsx(
+                'object-cover',
+                'object-center',
+                'w-full',
+                'h-full',
+                'group-hover:scale-105',
+                'transition',
+              )}
             />
           </div>
 
-          <p>{formatDate(post.createdAt)}</p>
+          <p className='opacity-70'>{formatDate(post.createdAt)}</p>
           <h2 className='font-bold text-xl'>{post.title}</h2>
-          <p className='opacity-90'>{post.excerpt}</p>
+          <p>{post.excerpt}</p>
         </Link>
       ))}
     </div>
