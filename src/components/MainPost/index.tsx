@@ -12,7 +12,7 @@ interface MainPostType {
 const MainPost = ({ post }: MainPostType) => {
   return post !== undefined ? (
     <Link
-      href='/about'
+      href={`/post/${post.slug}`}
       className={clsx(
         'w-full min-h-[60vh] mt-[3rem] grid grid-rows-[1.3fr_1fr] gap-[1rem] group',
         'sm:grid-rows-[1fr] sm:grid-cols-[1fr_1fr] sm:min-h-[35vh] sm:gap-[1.5rem]',
