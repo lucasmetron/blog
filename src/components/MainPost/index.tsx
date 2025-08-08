@@ -1,10 +1,10 @@
-import Image from 'next/image';
 import clsx from 'clsx';
 
 import { PostType } from '@/Types/PostType';
 import { formatDate } from '@/utils/functions';
 import Link from 'next/link';
 import PostHeading from '../PostHeading';
+import ImagePost from '../ImagePost';
 
 interface MainPostType {
   post: PostType | undefined;
@@ -17,19 +17,10 @@ const MainPost = ({ post }: MainPostType) => {
       className={clsx(
         'w-full min-h-[60vh] mt-[3rem] grid grid-rows-[1.3fr_1fr] gap-[1rem] group',
         'sm:grid-rows-[1fr] sm:grid-cols-[1fr_1fr] sm:min-h-[35vh] sm:gap-[1.5rem]',
-        'lg:min-h-[40vh]',
+        'lg:min-h-[40vh] lg:max-h-[400px]',
       )}
     >
-      <div className='relative w-full h-full rounded-[12px] overflow-hidden '>
-        <Image
-          src={post.coverImageUrl}
-          alt={post.slug}
-          width={1200}
-          height={700}
-          className='object-cover object-center w-full h-full group-hover:scale-105 transition'
-          priority
-        />
-      </div>
+      <ImagePost post={post} />
       <div className='flex flex-col items-start justify-center gap-[0.5rem]'>
         <p className='opacity-70'>{formatDate(post.createdAt)}</p>
         <PostHeading as='h1'> {post.title}</PostHeading>

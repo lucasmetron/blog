@@ -1,11 +1,11 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 import { PostType } from '@/Types/PostType';
-import { formatDate } from '@/utils/functions';
+import { cutString, formatDate } from '@/utils/functions';
 import clsx from 'clsx';
 import PostHeading from '../PostHeading';
+import ImagePost from '../ImagePost';
 
 interface SecondaryPostType {
   posts: PostType[];
@@ -15,7 +15,7 @@ const SecondaryPost = ({ posts }: SecondaryPostType) => {
   return (
     <div
       className={clsx(
-        'w-[100%]',
+        'w-full',
         'h-fit',
         'grid',
         'grid-cols-[1fr]',
@@ -27,28 +27,15 @@ const SecondaryPost = ({ posts }: SecondaryPostType) => {
         <Link
           href={`/post/${post.slug}`}
           key={post.id}
-          className='w-[100%] flex flex-col gap-1 cursor-pointer group'
+          className='w-full h-full grid grid-rows-[auto_1fr] gap-[1rem] cursor-pointer group'
         >
-          <div className='relative rounded-[12px] overflow-hidden'>
-            <Image
-              src={post.coverImageUrl}
-              alt={post.slug}
-              width={1000}
-              height={1000}
-              className={clsx(
-                'object-cover',
-                'object-center',
-                'w-full',
-                'h-full',
-                'group-hover:scale-105',
-                'transition',
-              )}
-            />
-          </div>
+          <ImagePost post={post} />
 
-          <p className='opacity-70'>{formatDate(post.createdAt)}</p>
-          <PostHeading>{post.title}</PostHeading>
-          <p>{post.excerpt}</p>
+          <div className='w-full h-full flex flex-col'>
+            <p className='opacity-70'>{formatDate(post.createdAt)}</p>
+            <PostHeading>{cutString(post.title, 50)}</PostHeading>
+            <p>{cutString(post.excerpt, 150)}</p>
+          </div>
         </Link>
       ))}
     </div>

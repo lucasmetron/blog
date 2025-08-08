@@ -16,3 +16,10 @@ export function formatDate(
 
   return includeTime ? `${formattedDate} ${formattedTime}` : formattedDate;
 }
+
+export function cutString(text: string, maxLength = 30): string {
+  if (text.length <= maxLength) {
+    return text;
+  }
+  return text.slice(0, maxLength) + '...';
+}
