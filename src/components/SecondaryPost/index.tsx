@@ -5,6 +5,7 @@ import React from 'react';
 import { PostType } from '@/Types/PostType';
 import { formatDate } from '@/utils/functions';
 import clsx from 'clsx';
+import PostHeading from '../PostHeading';
 
 interface SecondaryPostType {
   posts: PostType[];
@@ -46,7 +47,7 @@ const SecondaryPost = ({ posts }: SecondaryPostType) => {
           </div>
 
           <p className='opacity-70'>{formatDate(post.createdAt)}</p>
-          <h2 className='font-bold text-xl'>{post.title}</h2>
+          <PostHeading>{post.title}</PostHeading>
           <p>{post.excerpt}</p>
         </Link>
       ))}
