@@ -7,13 +7,13 @@ const LoadingRoot = () => {
     <div
       className={clsx(
         'w-full',
-        'min-h-screen',
+
         'flex',
         'justify-center',
         'items-center',
       )}
     >
-      <SpinLoader />
+      <SpinLoader textLoad='Loading geral' />
     </div>
   );
 };

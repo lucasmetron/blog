@@ -1,6 +1,11 @@
 import clsx from 'clsx';
 
-export const container = clsx('flex', 'items-center', 'justify-center');
+export const container = clsx(
+  'flex',
+  'flex-col gap-1',
+  'items-center',
+  'justify-center',
+);
 
 export const spinner = clsx(
   'w-10',
@@ -13,3 +18,5 @@ export const spinner = clsx(
   'rounded-full',
   'animate-spin',
 );
+
+export const text = clsx('text-md animate-pulse');

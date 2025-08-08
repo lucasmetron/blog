@@ -15,7 +15,7 @@ export default function Home() {
         'flex-col',
       )}
     >
-      <Suspense fallback={<SpinLoader />}>
+      <Suspense fallback={<SpinLoader textLoad='Carregando posts' />}>
         <Posts />
       </Suspense>
     </div>

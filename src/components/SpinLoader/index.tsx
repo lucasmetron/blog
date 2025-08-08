@@ -1,14 +1,16 @@
 import React from 'react';
-import { container, spinner } from './styles';
+import * as style from './styles';
 
 type SpinLoaderType = {
   className?: string;
+  textLoad?: string;
 };
 
-const SpinLoader = ({ className }: SpinLoaderType) => {
+const SpinLoader = ({ className, textLoad }: SpinLoaderType) => {
   return (
-    <div className={`${container} ${className}`}>
-      <div className={spinner} />
+    <div className={`${style.container} ${className}`}>
+      <div className={style.spinner} />
+      {textLoad && <p className={style.text}>{textLoad}</p>}
     </div>
   );
 };
