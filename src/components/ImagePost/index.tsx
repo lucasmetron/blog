@@ -5,18 +5,26 @@ import { PostType } from '@/Types/PostType';
 
 type ImagePostType = {
   post: PostType;
+  isPriority?: boolean;
+  width?: number;
+  height?: number;
 };
 
-const ImagePost = ({ post }: ImagePostType) => {
+const ImagePost = ({
+  post,
+  isPriority = false,
+  width = 1200,
+  height = 700,
+}: ImagePostType) => {
   return (
     <div className='relative w-full h-full rounded-[12px] overflow-hidden'>
       <Image
         src={post.coverImageUrl}
         alt={post.slug}
-        width={1200}
-        height={700}
+        width={width}
+        height={height}
         className='object-cover object-center w-full h-full group-hover:scale-105 transition'
-        priority
+        priority={isPriority}
       />
     </div>
   );

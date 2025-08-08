@@ -20,7 +20,7 @@ const MainPost = ({ post }: MainPostType) => {
         'lg:min-h-[40vh] lg:max-h-[400px]',
       )}
     >
-      <ImagePost post={post} />
+      <ImagePost post={post} isPriority />
       <div className='flex flex-col items-start justify-center gap-[0.5rem]'>
         <p className='opacity-70'>{formatDate(post.createdAt)}</p>
         <PostHeading as='h1'> {post.title}</PostHeading>
