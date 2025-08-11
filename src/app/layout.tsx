@@ -8,7 +8,10 @@ import Footer from '@/components/Footer';
 import Container from '@/components/Container';
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: {
+    default: 'The Blog | Next 15',
+    template: '%s | The Blog',
+  },
   description: 'Blog developed with Next 15',
 };
 
