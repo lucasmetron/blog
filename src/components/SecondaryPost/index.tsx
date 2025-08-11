@@ -6,11 +6,11 @@ import { PostType } from '@/Types/PostType';
 import ImagePost from '../ImagePost';
 import DescribePost from '../DescribePost';
 
-interface SecondaryPostType {
+interface SecondaryPostsType {
   posts: PostType[];
 }
 
-const SecondaryPost = ({ posts }: SecondaryPostType) => {
+const SecondaryPosts = ({ posts }: SecondaryPostsType) => {
   return (
     <div
       className={clsx(
@@ -38,4 +38,4 @@ const SecondaryPost = ({ posts }: SecondaryPostType) => {
   );
 };
 
-export default SecondaryPost;
+export default SecondaryPosts;

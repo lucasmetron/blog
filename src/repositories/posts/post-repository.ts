@@ -1,6 +1,6 @@
 import { PostType } from '@/Types/PostType';
 
 export interface PostRepository {
-  findAll(): Promise<PostType[]>;
+  findAllPublic(): Promise<PostType[]>;
   findById(id: string): Promise<PostType>;
 }
