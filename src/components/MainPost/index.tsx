@@ -1,10 +1,9 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 
 import { PostType } from '@/Types/PostType';
-import { formatDate } from '@/utils/functions';
-import Link from 'next/link';
-import PostHeading from '../PostHeading';
 import ImagePost from '../ImagePost';
+import DescribePost from '../DescribePost';
 
 interface MainPostType {
   post: PostType | undefined;
@@ -21,11 +20,7 @@ const MainPost = ({ post }: MainPostType) => {
       )}
     >
       <ImagePost post={post} isPriority />
-      <div className='flex flex-col items-start justify-center gap-[0.5rem]'>
-        <p className='opacity-70'>{formatDate(post.createdAt)}</p>
-        <PostHeading as='h1'> {post.title}</PostHeading>
-        <p>{post.excerpt}</p>
-      </div>
+      <DescribePost post={post} typeTile='h1' />
     </Link>
   ) : (
     <></>

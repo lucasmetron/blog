@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
+import clsx from 'clsx';
 
 import { PostType } from '@/Types/PostType';
-import { cutString, formatDate } from '@/utils/functions';
-import clsx from 'clsx';
-import PostHeading from '../PostHeading';
 import ImagePost from '../ImagePost';
+import DescribePost from '../DescribePost';
 
 interface SecondaryPostType {
   posts: PostType[];
@@ -32,11 +31,7 @@ const SecondaryPost = ({ posts }: SecondaryPostType) => {
         >
           <ImagePost post={post} />
 
-          <div className='w-full h-full flex flex-col'>
-            <p className='opacity-70'>{formatDate(post.createdAt)}</p>
-            <PostHeading>{cutString(post.title, 50)}</PostHeading>
-            <p>{cutString(post.excerpt, 150)}</p>
-          </div>
+          <DescribePost post={post} />
         </Link>
       ))}
     </div>
