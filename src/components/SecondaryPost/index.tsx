@@ -31,7 +31,7 @@ const SecondaryPost = ({ posts }: SecondaryPostType) => {
         >
           <ImagePost post={post} />
 
-          <DescribePost post={post} />
+          <DescribePost post={post} typeTile='h2' />
         </Link>
       ))}
     </div>

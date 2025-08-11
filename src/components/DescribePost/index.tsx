@@ -5,10 +5,10 @@ import { PostType } from '@/Types/PostType';
 
 interface DescribePostProps {
   post: PostType;
-  typeTile?: 'h1' | 'h2';
+  typeTile: 'h1' | 'h2';
 }
 
-const DescribePost = ({ post, typeTile = 'h2' }: DescribePostProps) => {
+const DescribePost = ({ post, typeTile }: DescribePostProps) => {
   return (
     <div className='flex flex-col items-start justify-center gap-[0.5rem]'>
       <p className='opacity-70'>{formatDate(post.createdAt)}</p>
