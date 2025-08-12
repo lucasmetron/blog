@@ -1,17 +1,17 @@
 import React from 'react';
 
-type PostType = {
+type DeleteType = {
   params: Promise<{ slug: string }>;
 };
 
-const Post = async ({ params }: PostType) => {
+const Delete = async ({ params }: DeleteType) => {
   const { slug } = await params;
 
   return (
     <div>
-      <p>{slug}</p>
+      <p>Deletar post: {slug}</p>
     </div>
   );
 };
 
-export default Post;
+export default Delete;
