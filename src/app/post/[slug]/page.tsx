@@ -1,23 +1,20 @@
 import React from 'react';
-import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 
 import { findBySlugCached } from '@/lib/posts/queries';
-import { PostType } from '@/Types/PostType';
 
 type PostPageType = {
   params: Promise<{ slug: string }>;
 };
 
+export const metadata: Metadata = {
+  title: 'aqui',
+};
+
 const Post = async ({ params }: PostPageType) => {
   const { slug } = await params;
 
-  let post: null | PostType = null;
-
-  try {
-    post = await findBySlugCached(slug);
-  } catch {
-    notFound();
-  }
+  const post = await findBySlugCached(slug);
 
   return (
     <div>
