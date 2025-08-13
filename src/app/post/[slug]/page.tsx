@@ -1,4 +1,4 @@
-import { findBySlug } from '@/lib/posts/queries';
+import { findBySlugCached } from '@/lib/posts/queries';
 import React from 'react';
 
 type PostType = {
@@ -7,7 +7,7 @@ type PostType = {
 
 const Post = async ({ params }: PostType) => {
   const { slug } = await params;
-  const post = await findBySlug(slug);
+  const post = await findBySlugCached(slug);
 
   return (
     <div>

@@ -1,10 +1,10 @@
 import React from 'react';
 import MainPost from '../MainPost';
 import SecondaryPosts from '../SecondaryPost';
-import { findAllPublicPosts } from '@/lib/posts/queries';
+import { findAllPublicPostsCached } from '@/lib/posts/queries';
 
 const Posts = async () => {
-  const posts = await findAllPublicPosts();
+  const posts = await findAllPublicPostsCached();
   const firsPost = posts.length > 0 ? posts[0] : undefined;
   const anothersPosts = posts.length > 0 ? posts.slice(1) : [];
 
