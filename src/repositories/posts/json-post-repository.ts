@@ -23,6 +23,8 @@ export class JsonPostRepository implements PostRepository {
   }
 
   private async readFromDisk(): Promise<PostType[]> {
+    await this.simulateWait();
+
     const jsonContent = await readFile(JSON_POST_FILE_PATCH, 'utf-8');
     const parsedJson = JSON.parse(jsonContent);
     const { posts } = parsedJson;
@@ -31,16 +33,11 @@ export class JsonPostRepository implements PostRepository {
   }
 
   async findAllPublic(): Promise<PostType[]> {
-    await this.simulateWait();
-
-    console.log('findAllPublic');
     const posts = (await this.readFromDisk()).filter(post => post.published);
     return posts;
   }
 
   async findById(id: string): Promise<PostType> {
-    await this.simulateWait();
-
     const posts = await this.readFromDisk();
     const post = posts.find(post => post.id === id);
 
@@ -50,8 +47,6 @@ export class JsonPostRepository implements PostRepository {
   }
 
   async findBySlug(slug: string): Promise<PostType> {
-    await this.simulateWait();
-
     const posts = await this.readFromDisk();
     const post = posts.find(post => post.slug === slug);
 
