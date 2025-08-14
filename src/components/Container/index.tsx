@@ -18,8 +18,9 @@ const Container = ({ children }: ContainerProps) => {
     >
       <div
         className={clsx(
-          'w-[80vw]',
-          'max-[900px]:w-[90vw]',
+          'w-[90vw]',
+          'sm:w-[75vw]',
+          'xl:w-[70vw]',
           'pt-[3rem]',
           'pb-[1rem]',
           'flex',
