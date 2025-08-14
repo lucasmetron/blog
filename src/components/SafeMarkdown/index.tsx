@@ -12,13 +12,13 @@ const SafeMarkdown = ({ markdown }: SafeMarkdownType) => {
   return (
     <div
       className={clsx(
-        'prose prose-red dark:prose-white',
+        'prose prose-slate dark:prose-invert', // <- muda no dark mode
         'w-full max-w-none',
         'overflow-hidden',
         'prose-a:transition',
         'prose-a:no-underline',
-        'prose-a:text-blue-500',
-        'prose-a:hover:text-blue-700',
+        'prose-a:text-blue-500 dark:prose-a:text-blue-400', // <- cor de link no dark
+        'prose-a:hover:text-blue-700 dark:prose-a:hover:text-blue-300',
         'prose-a:hover:underline',
         'prose-img:mx-auto',
         'lg:prose-lg',
