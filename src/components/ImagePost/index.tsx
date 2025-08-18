@@ -8,6 +8,7 @@ type ImagePostType = {
   isPriority?: boolean;
   width?: number;
   height?: number;
+  objectTypeImg?: 'object-cover' | 'object-contain' | 'object-fill' | '';
 };
 
 const ImagePost = ({
@@ -15,6 +16,7 @@ const ImagePost = ({
   isPriority = false,
   width = 1200,
   height = 700,
+  objectTypeImg = 'object-cover',
 }: ImagePostType) => {
   return (
     <div className='relative w-full h-full rounded-[12px] overflow-hidden'>
@@ -23,7 +25,7 @@ const ImagePost = ({
         alt={post.slug}
         width={width}
         height={height}
-        className='object-cover object-center w-full h-full group-hover:scale-105 transition'
+        className={`${objectTypeImg} object-center w-full h-full group-hover:scale-105 transition`}
         priority={isPriority}
       />
     </div>

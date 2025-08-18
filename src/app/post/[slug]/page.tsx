@@ -30,9 +30,9 @@ const Post = async ({ params }: PostPageType) => {
   const post = await findBySlugCached(slug);
 
   return (
-    <article className='w-full h-full flex flex-col gap-1.5'>
-      <header className='h-[55vh] mt-[2rem] '>
-        <ImagePost post={post} isPriority />
+    <article className='w-full h-full flex flex-col gap-3'>
+      <header className='h-[70vh] mt-[2rem] '>
+        <ImagePost post={post} isPriority objectTypeImg='object-fill' />
       </header>
 
       <PostHeading>{post.title}</PostHeading>
