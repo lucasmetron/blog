@@ -1,21 +1,15 @@
+import ErrorMessage from '@/components/ErrorMessage';
 import { Frown } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
 const NotFoundPAge = () => {
   return (
-    <>
-      <title>Página não encontrada</title>
-      <Link
-        href={'/'}
-        className=' w-full h-[75vh] flex justify-center items-center flex-col gap-1'
-      >
-        <h1 className='flex gap-1 font-extrabold'>
-          Error 401 <Frown />
-        </h1>
-        Página não econtrada, volte para a home.
-      </Link>
-    </>
+    <ErrorMessage
+      title='Página não encontrada'
+      contentTitle='Error 401'
+      content={'Página não econtrada, volte para a home.'}
+    />
   );
 };
 

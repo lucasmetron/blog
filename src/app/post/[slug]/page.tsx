@@ -31,7 +31,7 @@ const Post = async ({ params }: PostPageType) => {
 
   return (
     <article className='w-full h-full flex flex-col gap-3'>
-      <header className='h-[70vh] mt-[2rem] '>
+      <header className='h-[35vh] sm:h-[70vh] mt-[2rem] '>
         <ImagePost post={post} isPriority objectTypeImg='object-fill' />
       </header>
 
