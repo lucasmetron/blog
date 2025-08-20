@@ -7,6 +7,7 @@ export class DrizzlePostRepository implements PostRepository {
   private async readFromDB(): Promise<PostType[]> {
     const posts = await drizzleDb.query.posts.findMany({
       orderBy: (post, { desc }) => desc(post.createdAt),
+      // where: (post, {eq})=> eq(post.published, true), se fosse necessário filtrar por publicados
     });
     return posts;
   }
