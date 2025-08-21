@@ -1,15 +1,22 @@
 import React from 'react';
 import { Metadata } from 'next';
 
-import { findBySlugCached } from '@/lib/posts/queries';
+import {
+  findAllPublicPostsCached,
+  findBySlugCached,
+} from '@/lib/posts/queries';
 import ImagePost from '@/components/ImagePost';
 import PostHeading from '@/components/PostHeading';
 import { formatDate } from '@/utils/functions';
 import SafeMarkdown from '@/components/SafeMarkdown';
 
-type PostPageType = {
-  params: Promise<{ slug: string }>;
-};
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const post = await findAllPublicPostsCached();
+
+  return post.map(p => ({ slug: p.slug }));
+}
 
 export async function generateMetadata({
   params,
@@ -23,6 +30,10 @@ export async function generateMetadata({
     description: post.excerpt,
   };
 }
+
+type PostPageType = {
+  params: Promise<{ slug: string }>;
+};
 
 const Post = async ({ params }: PostPageType) => {
   const { slug } = await params;
