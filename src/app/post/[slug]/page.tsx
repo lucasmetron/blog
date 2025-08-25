@@ -11,6 +11,7 @@ import { formatDate } from '@/utils/functions';
 import SafeMarkdown from '@/components/SafeMarkdown';
 
 export const dynamicParams = true;
+export const revalidate = 10;
 
 export async function generateStaticParams() {
   const post = await findAllPublicPostsCached();

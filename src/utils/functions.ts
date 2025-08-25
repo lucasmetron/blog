@@ -10,9 +10,10 @@ export function formatDate(
 
   const hours = String(date.getHours()).padStart(2, '0');
   const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
 
   const formattedDate = `${day}/${month}/${year}`;
-  const formattedTime = `${hours}:${minutes}`;
+  const formattedTime = `${hours}:${minutes}:${seconds}`;
 
   return includeTime ? `${formattedDate} ${formattedTime}` : formattedDate;
 }
