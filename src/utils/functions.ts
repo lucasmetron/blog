@@ -24,3 +24,8 @@ export function cutString(text: string, maxLength = 30): string {
   }
   return text.slice(0, maxLength) + '...';
 }
+
+export const canShowHeaderAndFooter = (pathname: string) => {
+  const hiddenPaths = ['/login'];
+  return !hiddenPaths.includes(pathname);
+};

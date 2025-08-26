@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import ButtonDarkMode from '@/components/ButtonDarkMode';
 import { ThemeProvider } from '@/context/themeContext';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import HeaderClient from '@/components/HeaderClient';
+import FooterClient from '@/components/FooterClient';
 import Container from '@/components/Container';
 import ScrollTopUseClient from '@/components/ScrollTopUseClient';
 
@@ -27,10 +27,10 @@ export default function RootLayout({
         <ThemeProvider>
           <ButtonDarkMode />
           <Container>
-            <Header />
+            <HeaderClient />
             <ScrollTopUseClient />
             {children}
-            <Footer />
+            <FooterClient />
           </Container>
         </ThemeProvider>
       </body>

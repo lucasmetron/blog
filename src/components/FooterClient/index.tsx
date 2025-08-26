@@ -1,15 +1,24 @@
+'use client';
+
 import Link from 'next/link';
 import React from 'react';
 
-const Footer = () => {
-  return (
+import { canShowHeaderAndFooter } from '@/utils/functions';
+import { usePathname } from 'next/navigation';
+
+const FooterClient = () => {
+  const path = usePathname();
+
+  return canShowHeaderAndFooter(path) ? (
     <footer className='flex items-center justify-center pt-5'>
       <p className='text-[0.8rem]'>
         Copyright &copy; {new Date().getFullYear()} -{' '}
         <Link href={'/'}>The Blog</Link>
       </p>
     </footer>
+  ) : (
+    <></>
   );
 };
 
-export default Footer;
+export default FooterClient;
