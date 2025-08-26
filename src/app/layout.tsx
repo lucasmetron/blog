@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/context/themeContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Container from '@/components/Container';
+import ScrollTopUseClient from '@/components/ScrollTopUseClient';
 
 export const metadata: Metadata = {
   title: {
@@ -27,6 +28,7 @@ export default function RootLayout({
           <ButtonDarkMode />
           <Container>
             <Header />
+            <ScrollTopUseClient />
             {children}
             <Footer />
           </Container>

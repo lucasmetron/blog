@@ -3,6 +3,8 @@ import MainPost from '../MainPost';
 import SecondaryPosts from '../SecondaryPost';
 import { findAllPublicPostsCached } from '@/lib/posts/queries';
 
+export const dynamic = 'force-static';
+
 const Posts = async () => {
   const posts = await findAllPublicPostsCached();
   const firsPost = posts.length > 0 ? posts[0] : undefined;
