@@ -1,11 +1,17 @@
 import { revalidateExampleAction } from '@/actions/revalidate-example';
 import { formatDate } from '@/utils/functions';
+import { unstable_cacheLife, unstable_cacheTag } from 'next/cache';
 import React from 'react';
 
 // export const dynamic = 'force-static';
 // export const revalidate = 10;
 
 const exemplo = async ({ params }: { params: Promise<{ id: string }> }) => {
+  'use cache';
+
+  unstable_cacheLife({ expire: 10, stale: 0, revalidate: 10 });
+  unstable_cacheTag('example');
+
   const { id } = await params;
   const stamp = new Date().toISOString();
 
