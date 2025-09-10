@@ -1,7 +1,7 @@
 import React from 'react';
 import MainPost from '../MainPost';
 import SecondaryPosts from '../SecondaryPost';
-import { findAllPublicPostsCached } from '@/lib/posts/queries';
+import { findAllPublicPostsCached } from '@/lib/posts/queries/public';
 
 export const dynamic = 'force-static';
 

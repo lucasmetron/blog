@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import {
   findAllPublicPostsCached,
   findBySlugCached,
-} from '@/lib/posts/queries';
+} from '@/lib/posts/queries/public';
 import ImagePost from '@/components/ImagePost';
 import PostHeading from '@/components/PostHeading';
 import { formatDate } from '@/utils/functions';
