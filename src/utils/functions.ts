@@ -1,5 +1,7 @@
+import { styleText } from 'util';
+
 export function formatDate(
-  isoString: string,
+  isoString: string | number,
   includeTime: boolean = true,
 ): string {
   const date = new Date(isoString);
@@ -29,3 +31,10 @@ export const canShowHeaderAndFooter = (pathname: string) => {
   const hiddenPaths = ['/login'];
   return !hiddenPaths.includes(pathname);
 };
+
+export function logColor(...msg: (string | number)[]) {
+  const messages = msg
+    .map(message => styleText(['bgGreen', 'whiteBright'], `${message}`))
+    .join(' ');
+  console.log(styleText('green', messages));
+}
