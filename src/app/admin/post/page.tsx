@@ -1,7 +1,9 @@
-import React from 'react';
-
-import { findAllPostsAdmin } from '@/lib/posts/queries/admin';
+import React, { Suspense } from 'react';
 import { Metadata } from 'next';
+import clsx from 'clsx';
+
+import PostListAdmin from '@/components/PostListAdmin';
+import SpinLoader from '@/components/SpinLoader';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,14 +12,17 @@ export const metadata: Metadata = {
 };
 
 const ListPostsAdminPage = async () => {
-  const listPost = await findAllPostsAdmin();
-
   return (
     <div>
-      {listPost.map(post => (
-        <p key={post.id}>{post.title}</p>
-      ))}
-      <h1>{listPost[0].title}</h1>
+      <Suspense
+        fallback={
+          <div className='p-10'>
+            <SpinLoader textLoad='Carregando todos posts' />
+          </div>
+        }
+      >
+        <PostListAdmin />
+      </Suspense>
     </div>
   );
 };

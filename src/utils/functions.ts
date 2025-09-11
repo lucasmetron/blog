@@ -1,3 +1,4 @@
+import { WAIT_TIME_SIMULATE_MS } from '@/lib/constants';
 import { styleText } from 'util';
 
 export function formatDate(
@@ -37,4 +38,19 @@ export function logColor(...msg: (string | number)[]) {
     .map(message => styleText(['bgGreen', 'whiteBright'], `${message}`))
     .join(' ');
   console.log(styleText('green', messages));
+}
+
+export async function simulateWait(
+  mileseconds: number = 0,
+  showConsole = false,
+) {
+  if (mileseconds <= 0) return;
+
+  if (showConsole) {
+    logColor(`Delay de ${mileseconds / 1000}s`);
+  }
+
+  await new Promise(resolve => {
+    setTimeout(resolve, mileseconds);
+  });
 }

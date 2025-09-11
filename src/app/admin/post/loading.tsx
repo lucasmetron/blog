@@ -5,7 +5,7 @@ import React from 'react';
 const LoadingPostsAdmin = () => {
   return (
     <div className={clsx('w-full', 'flex', 'justify-center', 'items-center')}>
-      <SpinLoader textLoad='Carregando posts' />
+      <SpinLoader textLoad='Carregando todos posts' />
     </div>
   );
 };
