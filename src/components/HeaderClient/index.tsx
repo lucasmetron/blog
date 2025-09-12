@@ -22,6 +22,9 @@ const HeaderClient = () => {
           The Blog
         </h1>
       </Link>
+      <Link href={'/admin/post'}>
+        <p>ADMIN teste</p>
+      </Link>
     </header>
   ) : (
     <></>

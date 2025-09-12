@@ -1,9 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Trash } from 'lucide-react';
 import Link from 'next/link';
 
 import { findAllPostsAdmin } from '@/lib/posts/queries/admin';
+import BtnDeletePost from '../BtnDeletePost';
 
 const PostListAdmin = async () => {
   const listPost = await findAllPostsAdmin();
@@ -23,9 +23,7 @@ const PostListAdmin = async () => {
       )}
     >
       {listPost.map(post => (
-        <Link
-          href={`/admin/post/${post.id}`}
-          key={post.id}
+        <div
           className={clsx(
             'w-full',
             'py-2',
@@ -33,18 +31,23 @@ const PostListAdmin = async () => {
             'flex',
             'items-center',
             'justify-between',
-            'cursor-pointer',
             'rounded-[3px]',
-            post.published ? 'bg-transparent' : 'bg-gray-300',
+            !post.published && 'bg-gray-300',
           )}
         >
-          <p className='text-gray-900 text-md'>{post.title}</p>
-          {!post.published && (
-            <p className='text-sm italic font-thin'>{`(Não publicado)`}</p>
-          )}
+          <Link
+            className='cursor-pointer'
+            href={`/admin/post/${post.id}`}
+            key={post.id}
+          >
+            <p className='text-gray-900 text-sm md:text-lg'>{post.title}</p>
+          </Link>
 
-          <Trash color='red' />
-        </Link>
+          {!post.published && (
+            <p className=' text-xs italic font-thin md:text-sm'>{`(Não publicado)`}</p>
+          )}
+          <BtnDeletePost idPost={post.id} />
+        </div>
       ))}
     </div>
   );
