@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import { findAllPostsAdmin } from '@/lib/posts/queries/admin';
 import BtnDeletePost from '../BtnDeletePost';
+import DialogBox from '../DialogBox';
 
 const PostListAdmin = async () => {
   const listPost = await findAllPostsAdmin();
@@ -46,6 +47,11 @@ const PostListAdmin = async () => {
           <BtnDeletePost idPost={post.id} />
         </div>
       ))}
+
+      <DialogBox
+        title='Titulo Teste'
+        description='Loresad adias das dkas idaskj d'
+      />
     </div>
   );
 };
