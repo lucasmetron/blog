@@ -5,23 +5,39 @@ import clsx from 'clsx';
 
 interface DialogBoxProps {
   title: string;
-  description: string;
+  content: React.ReactNode;
+  onConfirm?: () => void;
+  onCancel?: () => void;
+  isVisible?: boolean;
   textCancelBtn?: string;
   textOkBtn?: string;
+  diseabled?: boolean;
 }
 
 const DialogBox = ({
   title,
-  description,
+  content,
+  isVisible = false,
+  onConfirm = () => {},
+  onCancel = () => {},
   textCancelBtn = 'Cancelar',
   textOkBtn = 'Ok',
+  diseabled = false,
 }: DialogBoxProps) => {
+  if (!isVisible) return null;
+
+  function handleCancel() {
+    if (diseabled) return;
+    onCancel();
+  }
+
   return (
     <div
       className={clsx(
         'bg-black/50 backdrop-blur-xs fixed top-0 bottom-0 left-0 right-0 z-50',
         'flex items-center justify-center',
       )}
+      onClick={handleCancel}
     >
       <div
         className={clsx(
@@ -29,14 +45,42 @@ const DialogBox = ({
           'flex flex-col gap-6',
           'shadow-lg shadow-black/30 text-center',
         )}
+        onClick={e => e.stopPropagation()}
       >
         <h3 className='text-xl font-extrabold'>{title}</h3>
-        <p>{description}</p>
+        <div>{content}</div>
         <div className='flex items-center justify-around'>
-          <button className='bg-slate-300 transition-all px-4 py-2 rounded-lg hover:bg-slate-400 cursor-pointer'>
+          <button
+            disabled={diseabled}
+            onClick={onCancel}
+            className={clsx(
+              'bg-slate-300',
+              diseabled ? 'opacity-50' : 'opacity-100',
+              'transition-all',
+              'px-4',
+              'py-2',
+              'rounded-lg',
+              'hover:bg-slate-400',
+              diseabled ? 'cursor-not-allowed' : 'cursor-pointer',
+            )}
+          >
             {textCancelBtn}
           </button>
-          <button className='bg-blue-500 transition-all px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer text-white'>
+          <button
+            disabled={diseabled}
+            onClick={onConfirm}
+            className={clsx(
+              'bg-blue-500',
+              diseabled ? 'opacity-50' : 'opacity-100',
+              'transition-all',
+              'px-4',
+              'py-2',
+              'rounded-lg',
+              'hover:bg-blue-700',
+              diseabled ? 'cursor-not-allowed' : 'cursor-pointer',
+              'text-white',
+            )}
+          >
             {textOkBtn}
           </button>
         </div>

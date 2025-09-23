@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 import { findAllPostsAdmin } from '@/lib/posts/queries/admin';
 import BtnDeletePost from '../BtnDeletePost';
-import DialogBox from '../DialogBox';
 
 const PostListAdmin = async () => {
   const listPost = await findAllPostsAdmin();
@@ -44,14 +43,9 @@ const PostListAdmin = async () => {
           {!post.published && (
             <p className=' text-xs italic font-thin md:text-sm'>{`(Não publicado)`}</p>
           )}
-          <BtnDeletePost idPost={post.id} />
+          <BtnDeletePost idPost={post.id} title={post.title} />
         </div>
       ))}
-
-      <DialogBox
-        title='Titulo Teste'
-        description='Loresad adias das dkas idaskj d'
-      />
     </div>
   );
 };
