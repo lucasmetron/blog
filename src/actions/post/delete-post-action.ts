@@ -5,6 +5,7 @@ import { postsTable } from '@/db/drizzle/schemas';
 import { postRepository } from '@/repositories/posts';
 import { logColor } from '@/utils/functions';
 import { eq } from 'drizzle-orm';
+import { revalidatePath, revalidateTag } from 'next/cache';
 
 export async function deletePostAction(id: string) {
   //TODO:Checar login do usuário
@@ -29,6 +30,10 @@ export async function deletePostAction(id: string) {
   if (!isSuccessTodelete) {
     respFunction.error = 'Erro ao deletar o post.';
   }
+
+  revalidatePath('/admin/post');
+  revalidateTag('posts');
+  revalidateTag(`post-${post.slug}`);
 
   logColor(id);
 

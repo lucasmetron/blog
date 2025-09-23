@@ -4,9 +4,20 @@ import Link from 'next/link';
 
 import { findAllPostsAdmin } from '@/lib/posts/queries/admin';
 import BtnDeletePost from '../BtnDeletePost';
+import { PostType } from '@/Types/PostType';
+import ErrorMessage from '../ErrorMessage';
 
 const PostListAdmin = async () => {
-  const listPost = await findAllPostsAdmin();
+  const listPost: PostType[] = await findAllPostsAdmin();
+
+  if (listPost.length === 0) {
+    return (
+      <ErrorMessage
+        contentTitle='Nenhum post encontrado'
+        content='Bora criar o primeiro post?'
+      />
+    );
+  }
 
   return (
     <div
