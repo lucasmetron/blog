@@ -3,6 +3,8 @@ import { PostRepository } from './post-repository';
 import { drizzleDb } from '@/db/drizzle';
 import { formatDate, logColor, simulateWait } from '@/utils/functions';
 import { WAIT_TIME_SIMULATE_MS } from '@/lib/constants';
+import { postsTable } from '@/db/drizzle/schemas';
+import { eq } from 'drizzle-orm';
 export class DrizzlePostRepository implements PostRepository {
   async findAllPublic(): Promise<PostType[]> {
     await simulateWait(WAIT_TIME_SIMULATE_MS, true);
@@ -50,5 +52,20 @@ export class DrizzlePostRepository implements PostRepository {
     if (!post) throw new Error('Post não encontrado pelo ID');
 
     return post;
+  }
+
+  async deleteById(id: string): Promise<boolean> {
+    let resp = false;
+    await drizzleDb
+      .delete(postsTable)
+      .where(eq(postsTable.id, id))
+      .then(() => {
+        resp = true;
+      })
+      .catch(() => {
+        resp = false;
+      });
+
+    return resp;
   }
 }

@@ -27,7 +27,12 @@ const BtnDeletePost = ({ idPost, title }: BtnDeletePostProps) => {
     setTransition(async () => {
       const result = await deletePostAction(idPost);
       setDialogIsOpen(false);
-      alert(`o result é ${result}`);
+
+      if (result.error === '') {
+        alert('Post excluído com sucesso!');
+      } else {
+        alert(result.error);
+      }
     });
   }
   return (

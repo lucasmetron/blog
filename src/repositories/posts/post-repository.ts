@@ -5,4 +5,5 @@ export interface PostRepository {
   findAll(): Promise<PostType[]>;
   findById(id: string): Promise<PostType>;
   findBySlugPublic(slug: string): Promise<PostType>;
+  deleteById(id: string): Promise<boolean>;
 }
