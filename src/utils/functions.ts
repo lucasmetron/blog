@@ -1,4 +1,5 @@
 import { WAIT_TIME_SIMULATE_MS } from '@/lib/constants';
+import { toast } from 'react-toastify';
 import { styleText } from 'util';
 
 export function formatDate(
@@ -52,5 +53,24 @@ export async function simulateWait(
 
   await new Promise(resolve => {
     setTimeout(resolve, mileseconds);
+  });
+}
+
+export function notify(
+  message: string,
+  type: 'info' | 'success' | 'warning' | 'error' | 'default' = 'default',
+  position:
+    | 'top-left'
+    | 'top-center'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-center'
+    | 'bottom-right' = 'top-center',
+  autoClose = 2000,
+) {
+  toast(message, {
+    type: type,
+    position: position,
+    autoClose: autoClose,
   });
 }

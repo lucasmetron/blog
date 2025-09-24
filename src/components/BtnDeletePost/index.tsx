@@ -5,6 +5,8 @@ import { Trash } from 'lucide-react';
 import { deletePostAction } from '@/actions/post/delete-post-action';
 import clsx from 'clsx';
 import DialogBox from '../DialogBox';
+import { toast } from 'react-toastify';
+import { notify } from '@/utils/functions';
 
 interface BtnDeletePostProps {
   idPost: string;
@@ -29,12 +31,13 @@ const BtnDeletePost = ({ idPost, title }: BtnDeletePostProps) => {
       setDialogIsOpen(false);
 
       if (result.error === '') {
-        alert('Post excluído com sucesso!');
+        notify('Post excluído com sucesso!', 'success');
       } else {
-        alert(result.error);
+        notify(result.error, 'error');
       }
     });
   }
+
   return (
     <>
       <button disabled={isPending} onClick={handleClick}>
@@ -48,6 +51,7 @@ const BtnDeletePost = ({ idPost, title }: BtnDeletePostProps) => {
           )}
         />
       </button>
+
       {dialogIsOpen && (
         <DialogBox
           diseabled={isPending}

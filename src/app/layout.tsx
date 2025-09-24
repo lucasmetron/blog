@@ -7,6 +7,7 @@ import HeaderClient from '@/components/HeaderClient';
 import FooterClient from '@/components/FooterClient';
 import Container from '@/components/Container';
 import ScrollTopUseClient from '@/components/ScrollTopUseClient';
+import Toastify from '@/components/Toastify';
 
 export const metadata: Metadata = {
   title: {
@@ -31,6 +32,7 @@ export default function RootLayout({
             <ScrollTopUseClient />
             {children}
             <FooterClient />
+            <Toastify />
           </Container>
         </ThemeProvider>
       </body>
