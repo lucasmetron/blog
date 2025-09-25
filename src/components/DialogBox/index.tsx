@@ -41,7 +41,7 @@ const DialogBox = ({
     >
       <div
         className={clsx(
-          'bg-slate-100 p-6 rounded-lg max-w-2xl mx-6',
+          'bg-slate-100 p-6 rounded-lg max-w-2xl mx-6 dark:bg-slate-800',
           'flex flex-col gap-6',
           'shadow-lg shadow-black/30 text-center',
         )}
@@ -55,6 +55,7 @@ const DialogBox = ({
             onClick={onCancel}
             className={clsx(
               'bg-slate-300',
+              'dark:bg-slate-500',
               diseabled ? 'opacity-50' : 'opacity-100',
               'transition-all',
               'px-4',

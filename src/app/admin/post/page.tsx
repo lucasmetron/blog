@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
-import clsx from 'clsx';
 
 import PostListAdmin from '@/components/PostListAdmin';
 import SpinLoader from '@/components/SpinLoader';

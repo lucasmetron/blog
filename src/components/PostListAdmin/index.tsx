@@ -44,11 +44,14 @@ const PostListAdmin = async () => {
             'justify-between',
             'rounded-[3px]',
             !post.published && 'bg-gray-300',
+            !post.published && 'dark:bg-gray-700',
           )}
           key={post.id}
         >
           <Link className='cursor-pointer' href={`/admin/post/${post.id}`}>
-            <p className='text-gray-900 text-sm md:text-lg'>{post.title}</p>
+            <p className='text-gray-900 text-sm md:text-lg dark:text-slate-100'>
+              {post.title}
+            </p>
           </Link>
 
           {!post.published && (

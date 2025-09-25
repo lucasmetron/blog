@@ -5,7 +5,6 @@ import { Trash } from 'lucide-react';
 import { deletePostAction } from '@/actions/post/delete-post-action';
 import clsx from 'clsx';
 import DialogBox from '../DialogBox';
-import { toast } from 'react-toastify';
 import { notify } from '@/utils/functions';
 
 interface BtnDeletePostProps {
