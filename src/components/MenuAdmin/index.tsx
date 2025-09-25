@@ -5,10 +5,10 @@ import React from 'react';
 
 const MenuAdmin = () => {
   const classNav = clsx(
-    'w-full',
     'bg-slate-900',
-    'rounded-md',
-    'py-2',
+    'w-full',
+    'rounded-lg',
+    'py-3',
     'px-4',
     'flex',
     'gap-4',
@@ -16,10 +16,10 @@ const MenuAdmin = () => {
     'dark:bg-slate-100',
   );
   const linkNav = clsx(
+    'flex',
     'gap-2',
     'text-white',
-    'flex',
-    '[&>svg]:w-5',
+    '[&>svg]:w-4.5',
     'dark:text-slate-900',
   );
   return (
@@ -31,7 +31,7 @@ const MenuAdmin = () => {
 
       <Link className={linkNav} href='/admin/post'>
         <List />
-        Products
+        Posts
       </Link>
 
       <Link className={linkNav} href='/admin/post/new'>
