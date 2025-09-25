@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Home, List } from 'lucide-react';
+import { CirclePlus, Home, List } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
@@ -32,6 +32,11 @@ const MenuAdmin = () => {
       <Link className={linkNav} href='/admin/post'>
         <List />
         Products
+      </Link>
+
+      <Link className={linkNav} href='/admin/post/new'>
+        <CirclePlus />
+        Adicionar Post
       </Link>
     </nav>
   );

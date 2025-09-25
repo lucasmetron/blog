@@ -23,7 +23,8 @@ const PostListAdmin = async () => {
     <div
       className={clsx(
         'w-full',
-        'h-[70vh]',
+        'h-[50vh]',
+        '[@media(min-height:700px)]:h-[70vh]',
         'pt-3',
         'overflow-auto',
         'flex',
