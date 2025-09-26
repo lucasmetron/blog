@@ -2,6 +2,7 @@
 
 import React from 'react';
 import clsx from 'clsx';
+import Button from '../Button';
 
 interface DialogBoxProps {
   title: string;
@@ -49,41 +50,23 @@ const DialogBox = ({
       >
         <h3 className='text-xl font-extrabold'>{title}</h3>
         <div>{content}</div>
-        <div className='flex items-center justify-around'>
-          <button
+        <div className='flex items-center justify-around gap-3'>
+          <Button
+            className='w-full'
+            variant='ghost'
             disabled={diseabled}
             onClick={onCancel}
-            className={clsx(
-              'bg-slate-300',
-              'dark:bg-slate-500',
-              diseabled ? 'opacity-50' : 'opacity-100',
-              'transition-all',
-              'px-4',
-              'py-2',
-              'rounded-lg',
-              'hover:bg-slate-400',
-              diseabled ? 'cursor-not-allowed' : 'cursor-pointer',
-            )}
           >
             {textCancelBtn}
-          </button>
-          <button
+          </Button>
+          <Button
+            variant='default'
+            className='w-full'
             disabled={diseabled}
             onClick={onConfirm}
-            className={clsx(
-              'bg-blue-500',
-              diseabled ? 'opacity-50' : 'opacity-100',
-              'transition-all',
-              'px-4',
-              'py-2',
-              'rounded-lg',
-              'hover:bg-blue-700',
-              diseabled ? 'cursor-not-allowed' : 'cursor-pointer',
-              'text-white',
-            )}
           >
             {textOkBtn}
-          </button>
+          </Button>
         </div>
       </div>
     </div>
