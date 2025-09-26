@@ -21,6 +21,7 @@ const InputText = ({ labelText = '', ...rest }: InputTextProps) => {
           'placeholder:text-gray-400',
           'disabled:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-70',
           'read-only:bg-slate-200 read-only:cursor-not-allowed read-only:opacity-70',
+          rest.className,
         )}
       />
     </div>

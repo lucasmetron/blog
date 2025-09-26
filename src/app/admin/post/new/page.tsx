@@ -25,6 +25,8 @@ const NewPostPage = () => {
         labelText='Sobrenome'
         placeholder='Digite seu sobrenome'
       />
+
+      <InputText placeholder='Digite seu sobrenome' />
     </div>
   );
 };
