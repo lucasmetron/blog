@@ -1,0 +1,24 @@
+/* Fundo e texto do editor */
+.w-md-editor,
+.w-md-editor-content,
+.w-md-editor-content-editor,
+.w-md-editor-text,
+.w-md-editor-text-pre,
+.w-md-editor-preview {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Barra de ferramentas */
+.w-md-editor-toolbar {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Botões da toolbar */
+.w-md-editor-toolbar li button {
+  color: #000000 !important;
+}
+.w-md-editor-toolbar li button:hover {
+  background-color: #f3f4f6 !important; /* um cinza claro */
+}
