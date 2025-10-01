@@ -5,6 +5,7 @@ import InputText from '../InputText';
 import Button from '../Button';
 import InputCheckBox from '../InputCheckBox';
 import InputMarkdown from '@/components/InputMarkdown';
+import ImageUploader from '../ImageUploader';
 
 const ManagePostFrom = () => {
   const [content, setContent] = React.useState('');
@@ -12,6 +13,7 @@ const ManagePostFrom = () => {
   return (
     <form action='' className='mb-16'>
       <div className='flex flex-col gap-4 items-center '>
+        <ImageUploader />
         <InputMarkdown
           value={content}
           setValue={setContent}

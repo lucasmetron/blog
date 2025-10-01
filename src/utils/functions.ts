@@ -1,4 +1,3 @@
-import { WAIT_TIME_SIMULATE_MS } from '@/lib/constants';
 import { toast } from 'react-toastify';
 import { styleText } from 'util';
 
